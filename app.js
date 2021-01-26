@@ -1,33 +1,32 @@
-//js/onsubmit_event.js
-// Below Function Executes On Form Submit
-function ValidationEvent() {
-    // Storing Field Values In Variables
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var contact = document.getElementById("contact").value;
-    // Regular Expression For Email
-    var emailReg = /^([w-.]+@([w-]+.)+[w-]{2,4})?$/;
-    // Conditions
-    if (name != '' && email != '' && contact != '') {
-    if (email.match(emailReg)) {
-    if (document.getElementById("male").checked || document.getElementById("female").checked) {
-    if (contact.length == 10) {
-    alert("All type of validation has done on OnSubmit event.");
-    return true;
-    } else {
-    alert("The Contact No. must be at least 10 digit long!");
-    return false;
+function validate() {
+      
+    if( document.myForm.Name.value == "" ) {
+       alert( "Please provide your name!" );
+       document.myForm.Name.focus() ;
+       return false;
     }
-    } else {
-    alert("You must select gender.....!");
-    return false;
+    if( document.myForm.EMail.value == "" ) {
+       alert( "Please provide your Email!" );
+    //    var x=document.myform.email.value;  
+    //     var atposition=x.indexOf("@");  
+    //     var dotposition=x.lastIndexOf(".");  
+    //     if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+    //     alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+    //     return false;  
+    //     }
+    //    document.myForm.EMail.focus() ;
+       return false;
     }
-    } else {
-    alert("Invalid Email Address...!!!");
-    return false;
+    if( document.myForm.Zip.value == "" || isNaN( document.myForm.Zip.value ) ||
+       document.myForm.Zip.value.length != 6 ) {
+       
+       alert( "Please provide a zip in the format ######." );
+       document.myForm.Zip.focus() ;
+       return false;
     }
-    } else {
-    alert("All fields are required.....!");
-    return false;
+    if( document.myForm.Country.value == "-1" ) {
+       alert( "Please provide your country!" );
+       return false;
     }
-    }
+    return( true );
+}
