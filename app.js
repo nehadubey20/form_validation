@@ -16,7 +16,7 @@ function validate() {
         }
      document.myForm.EMail.focus() ;
      return false;
-    
+      }
     if( document.myForm.Zip.value == "" || isNaN( document.myForm.Zip.value ) ||
        document.myForm.Zip.value.length != 6 ) {
        
